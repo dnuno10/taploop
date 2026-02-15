@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taploop — Tarjeta digital</title>
+    <meta
+      name="description"
+      content="Tarjeta digital Taploop. Nunca pierdas un contacto."
+    />
+    <style>
+      :root {
+        --bg: #f7f3ee;
+        --text: #180c0c;
+        --muted: #3f3d3f;
+        --brand-1: #ff6b2c;
+        --card: #fffdf9;
+        --line: #eee3d9;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, Avenir, Montserrat, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+
+      .page {
+        width: min(430px, 94vw);
+        background: color-mix(in oklab, var(--card) 92%, #fff);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        padding: 24px 18px 18px;
+        box-shadow: 0 20px 48px rgba(24, 12, 12, 0.08);
+        text-align: center;
+      }
+
+      .logo-image {
+        width: min(180px, 55vw);
+        height: auto;
+        margin: 0 auto 12px;
+        display: block;
+      }
+
+      .kicker {
+        margin: 0 0 8px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        font-size: 13px;
+        color: #5a5453;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.7rem, 7vw, 2.2rem);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        margin: 0 auto 18px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 28ch;
+        line-height: 1.4;
+      }
+
+      .links {
+        display: grid;
+        gap: 8px;
+        text-align: left;
+      }
+
+      .link {
+        text-decoration: none;
+        color: var(--text);
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        font-weight: 700;
+        transition: transform 0.18s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+        color: var(--brand-1);
+      }
+
+      .label {
+        flex: 1;
+      }
+
+      .link span {
+        color: var(--muted);
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .link:hover {
+        transform: translateY(-1px);
+        border-color: color-mix(in oklab, var(--brand-1) 45%, var(--line));
+        box-shadow: 0 8px 22px rgba(24, 12, 12, 0.06);
+      }
+
+      .shape {
+        position: fixed;
+        right: -180px;
+        bottom: -220px;
+        width: 500px;
+        height: 500px;
+        border-radius: 999px;
+        background: radial-gradient(circle at center, rgba(255, 155, 110, 0.2) 0, rgba(255, 155, 110, 0.2) 44%, rgba(255, 155, 110, 0.06) 45%, rgba(255, 155, 110, 0.06) 100%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .page > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      @media (max-width: 520px) {
+        .kicker {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shape" aria-hidden="true"></div>
+
+    <main class="page">
+      <img class="logo-image" src="TapLoop.jpg" alt="Logo Taploop" />
+
+      <p class="kicker">NETWORKING INTELIGENTE</p>
+      <h1>Nunca Pierdas Un Contacto</h1>
+      <p class="subtitle">
+        Conecta con Taploop en un toque.
+      </p>
+
+      <section class="links" aria-label="Redes y contacto">
+        <a class="link" href="https://instagram.com/taploop" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.8" r="1.1" fill="currentColor"/></svg>
+          <div class="label">Instagram <span>@taploop</span></div>
+        </a>
+        <a class="link" href="https://www.linkedin.com/company/taploop" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><path d="M8 10v6M8 8.2a1 1 0 1 0 0-.01M12 16v-3.3c0-1.2.8-2 1.9-2s1.8.8 1.8 2V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="label">LinkedIn <span>@taploop</span></div>
+        </a>
+        <a class="link" href="https://x.com/taploop" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l6.8 8.8L4.4 20H7l5-6 4.6 6H20l-7-9 6.2-7H17l-4.4 5.2L8.6 4H4z" fill="currentColor"/></svg>
+          <div class="label">X / Twitter <span>@taploop</span></div>
+        </a>
+        <a class="link" href="https://www.tiktok.com/@taploop" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5c.6 1.5 1.7 2.7 3 3.2V11c-1.2-.1-2.2-.5-3-.9v4.7a4.3 4.3 0 1 1-4.3-4.3c.3 0 .6 0 .9.1v2.7a1.8 1.8 0 1 0 1.9 1.8V4.5h1.5z" fill="currentColor"/></svg>
+          <div class="label">TikTok <span>@taploop</span></div>
+        </a>
+        <a class="link" href="https://wa.me/346643053834" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.5a7.5 7.5 0 0 0-6.5 11.2L4.5 20l4.5-1A7.5 7.5 0 1 0 12 4.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.6 9.2c.2-.4.4-.4.6-.4h.5c.2 0 .4.2.5.4l.6 1.5c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.3.6.9 1.2 1.5 1.5.1.1.3.1.4 0l.5-.4c.1-.1.3-.2.5-.1l1.5.6c.2.1.4.3.4.5v.5c0 .2 0 .4-.4.6-.5.2-1.6.2-3.1-.5a7.2 7.2 0 0 1-3-3c-.7-1.5-.7-2.6-.5-3.1z" fill="currentColor"/></svg>
+          <div class="label">WhatsApp <span>664 305 3834</span></div>
+        </a>
+        <a class="link" href="tel:+346643053834">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.8 4.5h2.3l1.2 4-1.4 1.4a14 14 0 0 0 5.2 5.2l1.4-1.4 4 1.2v2.3c0 .7-.6 1.3-1.3 1.3-7.1 0-12.9-5.8-12.9-12.9 0-.7.6-1.3 1.3-1.3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <div class="label">Llamar <span>664 305 3834</span></div>
+        </a>
+        <a class="link" href="mailto:info@taploop.es">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="label">Correo <span>info@taploop.es</span></div>
+        </a>
+        <a class="link" href="https://taploop.es" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="label">Web <span>taploop.es</span></div>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
