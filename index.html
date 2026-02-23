@@ -122,6 +122,30 @@
         box-shadow: 0 8px 22px rgba(24, 12, 12, 0.06);
       }
 
+      .link.save-contact {
+        background: #ef5a3c;
+        color: #fff;
+        border-color: #e65131;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .link.save-contact .label {
+        flex: 0 0 auto;
+      }
+
+      .link.save-contact .icon,
+      .link.save-contact .label,
+      .link.save-contact span {
+        color: #fff;
+      }
+
+      .link.save-contact:hover {
+        border-color: #d84a2c;
+        box-shadow: 0 10px 24px rgba(239, 90, 60, 0.3);
+      }
+
       .shape {
         position: fixed;
         right: -180px;
@@ -159,6 +183,10 @@
       </p>
 
       <section class="links" aria-label="Redes y contacto">
+        <a class="link save-contact" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3ATaploop%0AORG%3ATaploop%0ATEL%3BTYPE%3ACELL%3A%2B34%20664%20305%203834%0AEMAIL%3Ainfo%40taploop.es%0AURL%3Ahttps%3A%2F%2Ftaploop.es%0AEND%3AVCARD" download="Taploop.vcf">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8.5 9.5L12 13l3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="15" width="16" height="6" rx="2" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="label">Guardar contacto</div>
+        </a>
         <a class="link" href="https://instagram.com/taploop" target="_blank" rel="noopener noreferrer">
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.8" r="1.1" fill="currentColor"/></svg>
           <div class="label">Instagram <span>@taploop</span></div>
