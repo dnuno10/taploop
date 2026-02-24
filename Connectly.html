@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connectly — Conecta con tu Audiencia</title>
-    <meta
-      name="description"
-      content="Connectly - Plataforma de mensajería empresarial"
-    />
+    <title>Connectly — Contact Card</title>
     <style>
       * {
         box-sizing: border-box;
@@ -17,182 +13,331 @@
 
       body {
         min-height: 100vh;
-        background: linear-gradient(160deg, #7C3AED 0%, #A855F7 40%, #EC4899 100%);
-        font-family: 'DM Sans', system-ui, sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         padding: 20px;
       }
 
-      .container {
-        max-width: 440px;
-        width: 100%;
-      }
-
-      .card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 30px;
+      .business-card {
+        width: min(400px, 100%);
+        background: #fff;
+        border-radius: 24px;
         overflow: hidden;
-        box-shadow: 0 30px 90px rgba(124, 58, 237, 0.4);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
       }
 
-      .hero {
-        background: linear-gradient(135deg, #7C3AED, #A855F7);
-        padding: 40px 30px 35px;
-        text-align: center;
+      .top-section {
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        padding: 35px 30px 25px;
         position: relative;
       }
 
-      .hero::after {
-        content: '';
+      .nfc-indicator {
         position: absolute;
-        bottom: -1px;
-        left: 0;
-        right: 0;
-        height: 30px;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 30px 30px 0 0;
+        top: 18px;
+        right: 18px;
+        width: 38px;
+        height: 38px;
       }
 
-      .logo {
-        width: 240px;
-        margin: 0 auto;
+      .brand-logo {
+        width: 220px;
+        height: auto;
+        margin: 0 auto 25px;
         display: block;
-        position: relative;
-        z-index: 2;
       }
 
-      .body {
-        padding: 20px 30px 35px;
-      }
-
-      h1 {
-        font-size: 2rem;
-        color: #1F1F1F;
-        margin-bottom: 6px;
-        font-weight: 800;
-        text-align: center;
-      }
-
-      .desc {
-        text-align: center;
-        color: #7C3AED;
-        font-size: 1.05rem;
-        margin-bottom: 25px;
-        font-weight: 600;
-      }
-
-      .btn {
-        text-decoration: none;
+      .user-profile {
         display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 16px 20px;
-        border-radius: 15px;
-        font-weight: 600;
-        transition: all 0.2s ease;
-        margin-bottom: 10px;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 16px;
+        border-radius: 16px;
       }
 
-      .btn-primary {
-        background: linear-gradient(135deg, #7C3AED, #A855F7);
-        color: white;
-        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
-      }
-
-      .btn-secondary {
-        background: #F9FAFB;
-        color: #1F1F1F;
-        border: 2px solid #E5E7EB;
-      }
-
-      .btn-secondary:hover {
-        background: #F3F4F6;
-        border-color: #7C3AED;
-      }
-
-      .icon {
-        width: 22px;
-        height: 22px;
+      .user-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #fff;
         flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
-      .btn-primary .icon {
-        color: white;
-      }
-
-      .btn-secondary .icon {
-        color: #7C3AED;
-      }
-
-      .text {
+      .user-info {
         flex: 1;
+        color: #fff;
       }
 
-      .small-text {
-        font-size: 0.9rem;
+      .user-name {
+        font-size: 19px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .user-title {
+        font-size: 13px;
+        opacity: 0.95;
+        margin-bottom: 2px;
+      }
+
+      .user-company {
+        font-size: 12px;
         opacity: 0.8;
       }
 
-      @media (max-width: 480px) {
-        .hero {
-          padding: 35px 25px 30px;
-        }
-        .body {
-          padding: 18px 25px 30px;
-        }
-        h1 {
-          font-size: 1.8rem;
-        }
+      .main-content {
+        padding: 28px 30px 32px;
+      }
+
+      .primary-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        color: #fff;
+        border: none;
+        border-radius: 14px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        margin-bottom: 18px;
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+        transition: all 0.3s ease;
+      }
+
+      .primary-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.45);
+      }
+
+      .primary-action svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 16px;
+        background: #faf5ff;
+        border: 2px solid #e9d5ff;
+        border-radius: 13px;
+        text-decoration: none;
+        color: #1e293b;
+        transition: all 0.3s ease;
+      }
+
+      .contact-method:hover {
+        background: #f3e8ff;
+        border-color: #d8b4fe;
+        transform: translateX(5px);
+      }
+
+      .method-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .method-icon svg {
+        width: 20px;
+        height: 20px;
+        color: #fff;
+      }
+
+      .method-details {
+        flex: 1;
+      }
+
+      .method-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: #7c3aed;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 3px;
+      }
+
+      .method-value {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e293b;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid #e9d5ff;
+      }
+
+      .social-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
+        background: #fafafa;
+        border-radius: 12px;
+        text-decoration: none;
+        color: #475569;
+        transition: all 0.3s ease;
+      }
+
+      .social-btn:hover {
+        background: #f3e8ff;
+        transform: translateY(-2px);
+      }
+
+      .social-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .social-icon svg {
+        width: 16px;
+        height: 16px;
+        color: #fff;
+      }
+
+      .social-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: #64748b;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="card">
-        <div class="hero">
-          <img class="logo" src="Connectly.png" alt="Connectly" />
+    <div class="business-card">
+      <div class="top-section">
+        <svg class="nfc-indicator" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9v6l3-3-3-3zm12 0v6l-3-3 3-3zm-6 6V9" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+
+        <img class="brand-logo" src="Connectly.png" alt="Connectly" />
+
+        <div class="user-profile">
+          <div class="user-avatar">LP</div>
+          <div class="user-info">
+            <div class="user-name">Laura Pérez</div>
+            <div class="user-title">Community Manager</div>
+            <div class="user-company">Connectly Networks</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <a class="primary-action" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3ALaura%20Pérez%0AORG%3AConnectly%20Networks%0ATITLE%3ACommunity%20Manager%0ATEL%3BTYPE%3ACELL%3A%2B34%20623%20456%20789%0AEMAIL%3Alaura.perez%40connectly.app%0AURL%3Ahttps%3A%2F%2Fconnectly.app%0AEND%3AVCARD" download="Laura_Perez_Connectly.vcf">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v10m0 0l-3.5-3.5m3.5 3.5l3.5-3.5M4 15h16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Agregar a contactos
+        </a>
+
+        <div class="contact-methods">
+          <a class="contact-method" href="mailto:laura.perez@connectly.app">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <div class="method-name">Email</div>
+              <div class="method-value">laura.perez@connectly.app</div>
+            </div>
+          </a>
+
+          <a class="contact-method" href="tel:+34623456789">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6.8 4.5h2.3l1.2 4-1.4 1.4a14 14 0 0 0 5.2 5.2l1.4-1.4 4 1.2v2.3c0 .7-.6 1.3-1.3 1.3-7.1 0-12.9-5.8-12.9-12.9 0-.7.6-1.3 1.3-1.3z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <div class="method-name">Teléfono</div>
+              <div class="method-value">+34 623 456 789</div>
+            </div>
+          </a>
+
+          <a class="contact-method" href="https://wa.me/34623456789" target="_blank">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 4.5a7.5 7.5 0 0 0-6.5 11.2L4.5 20l4.5-1A7.5 7.5 0 1 0 12 4.5z" stroke="currentColor" stroke-width="2"/>
+                <path d="M9.6 9.2c.2-.4.4-.4.6-.4h.5c.2 0 .4.2.5.4l.6 1.5c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.3.6.9 1.2 1.5 1.5.1.1.3.1.4 0l.5-.4c.1-.1.3-.2.5-.1l1.5.6c.2.1.4.3.4.5v.5c0 .2 0 .4-.4.6-.5.2-1.6.2-3.1-.5a7.2 7.2 0 0 1-3-3c-.7-1.5-.7-2.6-.5-3.1z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <div class="method-name">WhatsApp</div>
+              <div class="method-value">Enviar mensaje</div>
+            </div>
+          </a>
         </div>
 
-        <div class="body">
-          <h1>Connectly</h1>
-          <p class="desc">Conversaciones que convierten</p>
-
-          <a class="btn btn-primary" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AConnectly%0AORG%3AConnectly%20Messaging%0ATEL%3BTYPE%3ACELL%3A%2B34%20914%20567%20890%0AEMAIL%3Ahola%40connectly.app%0AURL%3Ahttps%3A%2F%2Fconnectly.app%0AEND%3AVCARD" download="Connectly.vcf">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="text">Guardar Contacto</span>
+        <div class="social-links">
+          <a class="social-btn" href="https://instagram.com/lauraperez" target="_blank">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.3" cy="6.8" r="1.1" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="social-label">Instagram</div>
           </a>
 
-          <a class="btn btn-secondary" href="https://connectly.app" target="_blank">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke="currentColor" stroke-width="2"/></svg>
-            <span class="text">connectly.app</span>
+          <a class="social-btn" href="https://linkedin.com/in/lauraperez" target="_blank">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 10v6M8 8.2a1 1 0 1 0 0-.01M12 16v-3.3c0-1.2.8-2 1.9-2s1.8.8 1.8 2V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="social-label">LinkedIn</div>
           </a>
 
-          <a class="btn btn-secondary" href="https://wa.me/34914567890" target="_blank">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span class="text">WhatsApp <span class="small-text">914 567 890</span></span>
-          </a>
-
-          <a class="btn btn-secondary" href="mailto:hola@connectly.app">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="text">hola@connectly.app</span>
-          </a>
-
-          <a class="btn btn-secondary" href="tel:+34914567890">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="text">+34 914 567 890</span>
-          </a>
-
-          <a class="btn btn-secondary" href="https://linkedin.com/company/connectly" target="_blank">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-            <span class="text">LinkedIn</span>
+          <a class="social-btn" href="https://connectly.app" target="_blank">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="social-label">Website</div>
           </a>
         </div>
       </div>
